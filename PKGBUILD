@@ -1,4 +1,4 @@
-pkgname=canon-pisma-mg7100-complete
+pkgname=canon-pixma-mg7100-complete
 pkgver=4.40
 pkgrel=1
 pkgdesc="Stand alone driver for Canon MG7100"
@@ -6,7 +6,7 @@ url='https://support-asia.canon-asia.com/contents/ASIA/EN/0100551202.html'
 arch=('i686' 'x86_64')
 license=('custom')
 install="${pkgname}.install"
-depends_x86_64=('lib32-popt' 'lib32-libpng12' 'lib32-libusb-compat' 'lib32-libtiff4' 'lib32-libxml2' 'lib32-gtk2')  
+depends_x86_64=('lib32-popt' 'lib32-libpng12' 'lib32-libtiff4' 'lib32-libxml2' 'lib32-gtk2')  
 depends_i686=('popt' 'libpng12' 'libusb-compat' 'libtiff4' 'libxml2' 'gtk2')
 
 makedepends=('deb2targz' 'sed')
@@ -25,28 +25,30 @@ _printDrvSrc='cnijfilter-mg7100series-4.00-1-deb'
 _printDrvDebCommon='cnijfilter-common_4.00-1_i386'
 _printDrvDebMain='cnijfilter-mg7100series_4.00-1_i386'
 
-_printDrvDebCommon64='cnijfilter-common_45.00-1_amd64'
-_printDrvDebmain64='cnijfilter-mg7100series_4.00-1_amd64'
+_printDrvDebCommon64='cnijfilter-common_4.00-1_amd64'
+_printDrvDebMain64='cnijfilter-mg7100series_4.00-1_amd64'
 
 _ppdFile="canonmg${_series}.ppd"
 
 build(){
 	cd ${srcdir}
 
-	tar zxf cnijfilter-mg${_series}-4.00-1-deb.tar.gz
+	tar zvxf cnijfilter-mg${_series}series-4.00-1-deb.tar.gz
 }
 
 package() {
 	cd ${pkgdir}
 
-	cp "${srcdir}/${_printDrvSrc}/packages/${_printDrvDebCommon}.deb" .
-	cp "${srcdir}/${_printDrvSrc}/packages/${_printDrvDebMain}.deb" .
+	cp -v "${srcdir}/${_printDrvSrc}/packages/${_printDrvDebCommon}.deb" .
+	cp -v "${srcdir}/${_printDrvSrc}/packages/${_printDrvDebMain}.deb" .
+	cp -v "${srcdir}/${_printDrvSrc}/packages/${_printDrvDebCommon64}.deb" .
+	cp -v "${srcdir}/${_printDrvSrc}/packages/${_printDrvDebMain64}.deb" .
 
 	deb2targz "${_printDrvDebCommon}.deb"
 	deb2targz "${_printDevDebMain}.deb"
 	deb2targz "${_printDevDebCommon64}.deb"
-	deb2targz "${_prinDevDebMain64}.deb"
+	deb2targz "${_printDevDebMain64}.deb"
 
 	rm -v *.deb
-	install -vDm 644 "${Srcdir}/${pkgname}.license" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+	install -vDm 644 "${srcdir}/${pkgname}.license" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
