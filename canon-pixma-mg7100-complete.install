@@ -1,4 +1,4 @@
-post_install() {
+#post_install() {
    echo
    echo -e "\e[1m\e[97m\e[44m====================================================================================>\e[0m "
    echo -e "\e[1m\e[97m\e[44m==>\e[0m "
@@ -20,14 +20,8 @@ post_install() {
    echo -e "\e[1m\e[97m\e[44m==>\e[0m       'cnijusb:/') provided by above command"
    echo -e "\e[1m\e[97m\e[44m==>\e[0m   "
    echo -e "\e[1m\e[97m\e[44m==>\e[0m   \e[1m4.\e[0m  Register printer with command"
-   echo -e "\e[1m\e[97m\e[44m==>\e[0m          \e[47m\e[30msudo lpadmin -p MG6300 -m canonmg6300.ppd -v <printer-address> -E\e[0m"
-   echo -e "\e[1m\e[97m\e[44m==>\e[0m   "
-   echo -e "\e[1m\e[97m\e[44m==>\e[0m \e[1mHow to scan:\e[0m"
-   echo -e "\e[1m\e[97m\e[44m==>\e[0m   "
-   echo -e "\e[1m\e[97m\e[44m==>\e[0m   A 'Cannon Scangear' icon has been installed in your application menu."
-   echo -e "\e[1m\e[97m\e[44m==>\e[0m   Alternatively, run this command from the command line:"
-   echo -e "\e[1m\e[97m\e[44m==>\e[0m          \e[47m\e[30mscangearmp\e[0m"
+   echo -e "\e[1m\e[97m\e[44m==>\e[0m          \e[47m\e[30msudo lpadmin -p MG7100 -m canonmg7100.ppd -v <printer-address> -E\e[0m"
    echo -e "\e[1m\e[97m\e[44m==>\e[0m   "
    echo -e "\e[1m\e[97m\e[44m====================================================================================>\e[0m "
    echo
-}
+#}
