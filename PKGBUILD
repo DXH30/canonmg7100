@@ -45,9 +45,9 @@ package() {
 	cp -v "${srcdir}/${_printDrvSrc}/packages/${_printDrvDebMain64}.deb" .
 
 	deb2targz "${_printDrvDebCommon}.deb"
-	deb2targz "${_printDevDebMain}.deb"
-	deb2targz "${_printDevDebCommon64}.deb"
-	deb2targz "${_printDevDebMain64}.deb"
+	deb2targz "${_printDrvDebMain}.deb"
+	deb2targz "${_printDrvDebCommon64}.deb"
+	deb2targz "${_printDrvDebMain64}.deb"
 
 	rm -v *.deb
 	install -vDm 644 "${srcdir}/${pkgname}.license" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
